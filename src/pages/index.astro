@@ -1,0 +1,169 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Rings from '../components/Rings.astro';
+
+const BOOKING_URL = 'https://salon67wicklow.book.app';
+const LOGO_URL =
+  'https://primary.jwwb.nl/public/n/b/v/temp-ntlbgehuitxuupijjhfo/img-20250130-wa0001-high-opm17x.jpg';
+
+const headline = 'Where your dream hair becomes a reality';
+
+const specialties = [
+  {
+    title: 'Blonde Colouring',
+    copy: 'From icy platinum to soft honey — precision blonde work tailored to your skin tone and lifestyle.',
+    img: 'https://images.unsplash.com/photo-1492106087820-71f1a00d2b11?auto=format&fit=crop&w=1200&q=80',
+    alt: 'Woman with bright blonde hair',
+  },
+  {
+    title: 'Hair Extensions',
+    copy: 'Weft, micro bead and keratin bond methods — seamless length and volume that looks and feels like your own.',
+    img: 'https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&w=1200&q=80',
+    alt: 'Stylist working on long hair in a salon',
+  },
+  {
+    title: 'Lived-in Blonde',
+    copy: 'Our signature low-maintenance colour — seamless, sun-kissed blends that grow out beautifully.',
+    img: 'https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=1200&q=80',
+    alt: 'Woman with lived-in blonde hair outdoors',
+  },
+];
+---
+
+<Layout title="Salon 67 — Blonde Colouring & Hair Extensions, Wicklow Town">
+  <!-- ============ HERO ============ -->
+  <section class="relative flex min-h-screen items-center justify-center overflow-hidden">
+    <div class="from-ink via-navy to-navy-2 absolute inset-0 bg-gradient-to-b"></div>
+    <Rings
+      class="hero-fade absolute top-1/2 left-1/2 h-[140vmin] w-[140vmin] -translate-x-1/2 -translate-y-1/2"
+    />
+
+    <div class="relative z-10 mx-auto max-w-4xl px-6 pt-28 pb-20 text-center">
+      <img
+        src={LOGO_URL}
+        alt="Salon 67 — dark navy and silver concentric circle logo"
+        width="148"
+        height="148"
+        class="hero-fade mx-auto h-32 w-32 rounded-full object-cover shadow-[0_0_60px_rgb(201_207_219/0.15)] ring-1 ring-silver/40 lg:h-37 lg:w-37"
+      />
+
+      <h1
+        class="font-display mt-10 text-5xl leading-[1.08] font-light tracking-tight text-pearl sm:text-6xl lg:text-7xl"
+      >
+        {
+          headline.split(' ').map((word) => (
+            <span class="hero-word inline-block">
+              {word === 'dream' ? <em class="text-silver">{word}</em> : word}&nbsp;
+            </span>
+          ))
+        }
+      </h1>
+
+      <p class="hero-fade mt-7 text-base font-light tracking-wide text-platinum lg:text-lg">
+        Specialists in blonde colouring &amp; hair extensions — Wicklow Town
+      </p>
+
+      <div class="hero-fade mt-11 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <a
+          href={BOOKING_URL}
+          target="_blank"
+          rel="noopener"
+          class="bg-silver text-ink inline-block px-10 py-4 text-[0.78rem] tracking-[0.28em] uppercase transition-all duration-300 hover:bg-pearl"
+        >
+          Book your appointment
+        </a>
+        <a
+          href="/services"
+          class="inline-block border border-silver/40 px-10 py-4 text-[0.78rem] tracking-[0.28em] text-pearl uppercase transition-all duration-300 hover:border-silver"
+        >
+          Our services
+        </a>
+      </div>
+
+      <ul
+        class="hero-fade mt-16 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-[0.7rem] tracking-[0.3em] text-platinum/80 uppercase"
+      >
+        <li>Blonde Colouring</li>
+        <li class="hidden h-1 w-1 rounded-full bg-silver/50 sm:block"></li>
+        <li>Hair Extensions</li>
+        <li class="hidden h-1 w-1 rounded-full bg-silver/50 sm:block"></li>
+        <li>Lived-in Blonde</li>
+      </ul>
+    </div>
+
+    <div class="hero-fade absolute bottom-8 left-1/2 -translate-x-1/2" aria-hidden="true">
+      <div class="h-14 w-px bg-gradient-to-b from-transparent via-silver/50 to-transparent"></div>
+    </div>
+  </section>
+
+  <!-- ============ SPECIALTIES ============ -->
+  <section class="relative py-24 lg:py-36">
+    <div class="mx-auto max-w-7xl px-6 lg:px-10">
+      <p class="fade-up text-[0.72rem] tracking-[0.32em] text-platinum uppercase">What we do</p>
+      <h2 class="fade-up font-display mt-5 max-w-2xl text-4xl font-light tracking-tight text-pearl lg:text-5xl">
+        Three things, done <em class="text-silver">exceptionally</em> well
+      </h2>
+
+      <div class="stagger-cards mt-16 grid gap-8 md:grid-cols-3">
+        {
+          specialties.map((s) => (
+            <article class="group border border-silver/10 bg-navy-2 transition-colors duration-500 hover:border-silver/30">
+              <div class="overflow-hidden">
+                <img
+                  src={s.img}
+                  alt={s.alt}
+                  loading="lazy"
+                  class="img-luxe parallax-img aspect-[4/5] w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+              </div>
+              <div class="p-8">
+                <h3 class="font-display text-2xl font-light text-pearl">{s.title}</h3>
+                <p class="mt-4 text-sm leading-relaxed font-light text-platinum">{s.copy}</p>
+                <a
+                  href="/services"
+                  class="link-sweep mt-6 inline-block text-[0.7rem] tracking-[0.28em] text-silver uppercase"
+                >
+                  Explore
+                </a>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIAL ============ -->
+  <section class="relative overflow-hidden py-24 lg:py-36">
+    <div class="bg-ink absolute inset-0"></div>
+    <Rings class="absolute top-1/2 left-[-280px] h-[640px] w-[640px] -translate-y-1/2 opacity-60" />
+    <div class="relative mx-auto max-w-4xl px-6 text-center lg:px-10">
+      <div class="fade-up font-display text-7xl leading-none text-silver/30" aria-hidden="true">“</div>
+      <blockquote class="fade-up font-display mt-2 text-2xl leading-relaxed font-light text-pearl italic lg:text-4xl">
+        I absolutely love my hair extensions from Salon 67! They look so natural and have given me
+        the confidence boost I needed.
+      </blockquote>
+      <p class="fade-up mt-8 text-[0.72rem] tracking-[0.32em] text-platinum uppercase">— Lisa</p>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="py-24 lg:py-36">
+    <div class="mx-auto max-w-7xl px-6 lg:px-10">
+      <div class="hairline fade-up"></div>
+      <div class="fade-up mt-16 flex flex-col items-start justify-between gap-10 lg:flex-row lg:items-end">
+        <h2 class="font-display max-w-2xl text-4xl font-light tracking-tight text-pearl lg:text-6xl">
+          Your dream hair is one appointment away
+        </h2>
+        <a
+          href={BOOKING_URL}
+          target="_blank"
+          rel="noopener"
+          class="bg-silver text-ink inline-block shrink-0 px-10 py-4 text-[0.78rem] tracking-[0.28em] uppercase transition-all duration-300 hover:bg-pearl"
+        >
+          Book now
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

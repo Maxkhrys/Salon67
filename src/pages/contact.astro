@@ -1,0 +1,147 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
+
+const BOOKING_URL = 'https://salon67wicklow.book.app';
+const VOUCHER_URL = 'https://www.salon67wicklow.com/product/21187357/gift-vouchers';
+
+const socials = [
+  { href: 'https://facebook.com/share/1FgRcJDdt4', label: 'Facebook' },
+  { href: 'https://instagram.com/salon67wicklow', label: 'Instagram' },
+  { href: 'https://tiktok.com/@salon67wicklow', label: 'TikTok' },
+];
+---
+
+<Layout
+  title="Contact — Salon 67"
+  description="Visit Salon 67 in Wicklow Town, call 0404 66 045 or book online. We'd love to hear from you."
+>
+  <PageHeader
+    eyebrow="Contact"
+    title="Come say hello"
+    intro="Questions about extensions, colour or The 67 Collection? Call, message or book straight in — we'd love to hear from you."
+  />
+
+  <section class="pb-24 lg:pb-36">
+    <div class="mx-auto max-w-7xl px-6 lg:px-10">
+      <div class="grid gap-16 lg:grid-cols-2 lg:gap-24">
+        <!-- Details -->
+        <div class="fade-up">
+          <dl class="space-y-10">
+            <div>
+              <dt class="text-[0.72rem] tracking-[0.32em] text-platinum uppercase">Address</dt>
+              <dd class="font-display mt-3 text-2xl font-light text-pearl">
+                Salon 67<br />Wicklow Town<br />A67 HD96
+              </dd>
+            </div>
+            <div>
+              <dt class="text-[0.72rem] tracking-[0.32em] text-platinum uppercase">Phone</dt>
+              <dd class="mt-3">
+                <a
+                  href="tel:040466045"
+                  class="font-display link-sweep text-2xl font-light text-pearl"
+                >
+                  0404 66 045
+                </a>
+              </dd>
+            </div>
+            <div>
+              <dt class="text-[0.72rem] tracking-[0.32em] text-platinum uppercase">Follow us</dt>
+              <dd class="mt-4 flex gap-7">
+                {
+                  socials.map((s) => (
+                    <a
+                      href={s.href}
+                      target="_blank"
+                      rel="noopener"
+                      class="link-sweep text-[0.74rem] tracking-[0.24em] text-silver uppercase transition-colors hover:text-pearl"
+                    >
+                      {s.label}
+                    </a>
+                  ))
+                }
+              </dd>
+            </div>
+          </dl>
+
+          <div class="mt-12 flex flex-col gap-4 sm:flex-row">
+            <a
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noopener"
+              class="bg-silver text-ink inline-block px-10 py-4 text-center text-[0.78rem] tracking-[0.28em] uppercase transition-all duration-300 hover:bg-pearl"
+            >
+              Book online
+            </a>
+            <a
+              href={VOUCHER_URL}
+              target="_blank"
+              rel="noopener"
+              class="inline-block border border-silver/40 px-10 py-4 text-center text-[0.78rem] tracking-[0.28em] text-pearl uppercase transition-all duration-300 hover:border-silver"
+            >
+              Gift vouchers
+            </a>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <form
+          action="mailto:hello@salon67wicklow.com"
+          method="post"
+          enctype="text/plain"
+          class="fade-up border border-silver/10 bg-navy-2 p-8 lg:p-12"
+        >
+          <h2 class="font-display text-2xl font-light text-pearl">Send us a message</h2>
+          <div class="mt-8 space-y-7">
+            <div>
+              <label for="name" class="block text-[0.7rem] tracking-[0.28em] text-platinum uppercase">
+                Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                autocomplete="name"
+                class="mt-3 w-full border-b border-silver/25 bg-transparent py-3 font-light text-pearl transition-colors outline-none placeholder:text-platinum/50 focus:border-silver"
+                placeholder="Your name"
+              />
+            </div>
+            <div>
+              <label for="email" class="block text-[0.7rem] tracking-[0.28em] text-platinum uppercase">
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                autocomplete="email"
+                class="mt-3 w-full border-b border-silver/25 bg-transparent py-3 font-light text-pearl transition-colors outline-none placeholder:text-platinum/50 focus:border-silver"
+                placeholder="you@example.com"
+              />
+            </div>
+            <div>
+              <label for="message" class="block text-[0.7rem] tracking-[0.28em] text-platinum uppercase">
+                Message
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                required
+                class="mt-3 w-full resize-none border-b border-silver/25 bg-transparent py-3 font-light text-pearl transition-colors outline-none placeholder:text-platinum/50 focus:border-silver"
+                placeholder="Tell us about your dream hair…"></textarea>
+            </div>
+          </div>
+          <button
+            type="submit"
+            class="bg-silver text-ink mt-10 w-full px-10 py-4 text-[0.78rem] tracking-[0.28em] uppercase transition-all duration-300 hover:bg-pearl"
+          >
+            Send message
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+</Layout>
