@@ -11,3 +11,5 @@ npm install
 npm run dev
 npm run build
 ```
+
+**Live:** https://salon67.vercel.app
